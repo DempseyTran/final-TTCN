@@ -28,11 +28,7 @@ namespace TTCN
             frmMain.ShowDialog();
         }
 
-        private void danhMụcNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmDMNhanVien frmNhanVien = new frmDMNhanVien();
-            frmNhanVien.ShowDialog();
-        }
+     
 
         private void danhMụcNhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -56,6 +52,23 @@ namespace TTCN
         {
             frmPhieuXuat frmphieuXuat = new frmPhieuXuat();
             frmphieuXuat.ShowDialog();
+        }
+
+        private void danhMụcSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDMSanPham frmDMSP = new frmDMSanPham();
+            frmDMSP.ShowDialog();
+        }
+
+        private void danhMụcNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDMNhanVien frmDMNhanVien = new frmDMNhanVien();
+            frmDMNhanVien.ShowDialog();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 

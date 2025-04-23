@@ -59,6 +59,12 @@
     <Compile Include="frmDMNhaCungCap.Designer.cs">
       <DependentUpon>frmDMNhaCungCap.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDMSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDMSanPham.Designer.cs">
+      <DependentUpon>frmDMSanPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDMNhanVien.resx">
       <DependentUpon>frmDMNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPhieuNhap.resx">
+      <DependentUpon>frmPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPhieuXuat.resx">
+      <DependentUpon>frmPhieuXuat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -173,6 +185,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Custom-Icon-Design-Office-Export.48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Custom-Icon-Design-Pretty-Office-3-Product.48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
