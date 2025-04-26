@@ -196,5 +196,8 @@
   <ItemGroup>
     <None Include="Resources\Hopstarter-Sleek-Xp-Basic-Delete.48.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Custom-Icon-Design-Flatastic-5-Sales-by-payment-method.48.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
