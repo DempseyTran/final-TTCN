@@ -14,3 +14,4 @@ D:\Kì 6\.NET\BTVN\TTCN\TTCN\obj\Debug\TTCN.frmDMNguyenLieu.resources
 D:\Kì 6\.NET\BTVN\TTCN\TTCN\obj\Debug\TTCN.frmDMNhaCungCap.resources
 D:\Kì 6\.NET\BTVN\TTCN\TTCN\obj\Debug\TTCN.frmPhieuNhap.resources
 D:\Kì 6\.NET\BTVN\TTCN\TTCN\obj\Debug\TTCN.frmPhieuXuat.resources
+D:\Kì 6\.NET\BTVN\TTCN\TTCN\obj\Debug\TTCN.frmDMSanPham.resources

@@ -19,7 +19,7 @@ namespace TTCN
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-
+            DAO.Connect();
         }
 
         private void ddToolStripMenuItem_Click(object sender, EventArgs e)
@@ -70,6 +70,8 @@ namespace TTCN
         {
 
         }
+
+       
     }
 
 }
