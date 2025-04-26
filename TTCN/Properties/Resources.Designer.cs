@@ -103,6 +103,16 @@ namespace TTCN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Custom_Icon_Design_Flatastic_5_Sales_by_payment_method_48 {
+            get {
+                object obj = ResourceManager.GetObject("Custom-Icon-Design-Flatastic-5-Sales-by-payment-method.48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Custom_Icon_Design_Flatastic_9_Import_export_48 {
             get {
                 object obj = ResourceManager.GetObject("Custom-Icon-Design-Flatastic-9-Import-export.48", resourceCulture);

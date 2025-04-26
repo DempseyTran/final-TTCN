@@ -28,20 +28,6 @@ namespace TTCN
             frmMain.ShowDialog();
         }
 
-     
-
-        private void danhMụcNhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmDMNhaCungCap frmDMNCC= new frmDMNhaCungCap();
-            frmDMNCC.ShowDialog();
-        }
-
-        private void danhMụcNguyênLiệuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmDMNguyenLieu frmDMNL = new frmDMNguyenLieu();
-            frmDMNL.ShowDialog();
-        }
-
         private void nhậpKhoNguyênLiệuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmPhieuNhap frmphieuNhap= new frmPhieuNhap();
@@ -54,24 +40,39 @@ namespace TTCN
             frmphieuXuat.ShowDialog();
         }
 
-        private void danhMụcSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmDMSanPham frmDMSP = new frmDMSanPham();
-            frmDMSP.ShowDialog();
-        }
-
-        private void danhMụcNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmDMNhanVien frmDMNhanVien = new frmDMNhanVien();
-            frmDMNhanVien.ShowDialog();
-        }
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-       
+        private void navDMNV_Click(object sender, EventArgs e)
+        {
+            frmDMNhanVien frmDMNhanVien = new frmDMNhanVien();
+            frmDMNhanVien.ShowDialog();
+        }
+
+        private void navDMNCC_Click(object sender, EventArgs e)
+        {
+            frmDMNhaCungCap frmDMNCC = new frmDMNhaCungCap();
+            frmDMNCC.ShowDialog();
+        }
+
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void navDMNL_Click(object sender, EventArgs e)
+        {
+            frmDMNguyenLieu frmDMNL = new frmDMNguyenLieu();
+            frmDMNL.ShowDialog();
+        }
+
+        private void navDMSP_Click(object sender, EventArgs e)
+        {
+            frmDMSanPham frmDMSP = new frmDMSanPham();
+            frmDMSP.ShowDialog();
+        }
     }
 
 }
