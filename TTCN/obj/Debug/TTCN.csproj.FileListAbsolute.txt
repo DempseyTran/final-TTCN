@@ -15,3 +15,20 @@ D:\Kì 6\.NET\BTVN\TTCN\TTCN\obj\Debug\TTCN.frmDMNhaCungCap.resources
 D:\Kì 6\.NET\BTVN\TTCN\TTCN\obj\Debug\TTCN.frmPhieuNhap.resources
 D:\Kì 6\.NET\BTVN\TTCN\TTCN\obj\Debug\TTCN.frmPhieuXuat.resources
 D:\Kì 6\.NET\BTVN\TTCN\TTCN\obj\Debug\TTCN.frmDMSanPham.resources
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\bin\Debug\TTCN.exe.config
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\bin\Debug\TTCN.exe
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\bin\Debug\TTCN.pdb
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.csproj.AssemblyReference.cache
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.csproj.SuggestedBindingRedirects.cache
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.frmDMNguyenLieu.resources
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.frmDMNhaCungCap.resources
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.frmDMSanPham.resources
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.frmMain.resources
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.frmDMNhanVien.resources
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.frmPhieuNhap.resources
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.frmPhieuXuat.resources
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.Properties.Resources.resources
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.csproj.GenerateResource.cache
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.csproj.CoreCompileInputs.cache
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.exe
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.pdb
