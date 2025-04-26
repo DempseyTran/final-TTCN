@@ -130,7 +130,7 @@
     <value>1213, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="toolStripMenuItem2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnSua.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAACUBJREFUaEOt
         Wl1sVNcRHlGBEjUIkRIIiquQB7sJPK2okjZSVBVBQRFVrbbQECpCSSBBKLRuHlAs0bQWClIbkCxSWjfi
@@ -175,7 +175,7 @@
         fcN0lk5AQjBd8Nngn0GIaR31KP4PLtCT8iy62LYAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="toolStripMenuItem4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnLuu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAACuZJREFUaEPV
         mX1oFekVxieEiIRGvfGLmGhQUlREJYjBEJN7a2K+rI1SMRY10F0Qq3XbQjZFBPPHbkFY/acVu5WCpaFf
@@ -227,7 +227,7 @@
         Zmxckv3nMjAwXeNfsP6x/6cFBr5q9l+mS4hIFiQ2HwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="toolStripMenuItem5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnThoat.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAB5RJREFUaEPV
         l2lsVFUUx2tC1EQTjVEDtXShC10YStuhUEowfCAoUXFL3CWx1FQFbCAwbR2spWAXqC2lQIEgjfe6EBrS
@@ -265,4 +265,7 @@
         BmqptXvnXs6++pD/A03N4qWs9W/ZAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>25</value>
+  </metadata>
 </root>

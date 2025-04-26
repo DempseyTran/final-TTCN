@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO.cs" />
     <Compile Include="frmDMNguyenLieu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDMNhaCungCap.resx">
       <DependentUpon>frmDMNhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDMSanPham.resx">
+      <DependentUpon>frmDMSanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -188,6 +192,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Custom-Icon-Design-Pretty-Office-3-Product.48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hopstarter-Sleek-Xp-Basic-Delete.48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
