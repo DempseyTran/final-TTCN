@@ -22,23 +22,11 @@ namespace TTCN
             DAO.Connect();
         }
 
-        private void ddToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmMain frmMain = new frmMain();
-            frmMain.ShowDialog();
-        }
+   
 
-        private void nhậpKhoNguyênLiệuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmPhieuNhap frmphieuNhap= new frmPhieuNhap();
-            frmphieuNhap.ShowDialog();
-        }
+      
 
-        private void xuấtKhoNguyênLiệuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmPhieuXuat frmphieuXuat = new frmPhieuXuat();
-            frmphieuXuat.ShowDialog();
-        }
+        
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -72,6 +60,24 @@ namespace TTCN
         {
             frmDMSanPham frmDMSP = new frmDMSanPham();
             frmDMSP.ShowDialog();
+        }
+
+        private void hóaĐơnXuấtKhoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPhieuXuat frmphieuXuat = new frmPhieuXuat();
+            frmphieuXuat.ShowDialog();
+        }
+
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+            frmPhieuNhap frmphieuNhap = new frmPhieuNhap();
+            frmphieuNhap.ShowDialog();
+        }
+
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+            frmHoaDonBanHang frmHDBH = new frmHoaDonBanHang();
+            frmHDBH.ShowDialog();
         }
     }
 

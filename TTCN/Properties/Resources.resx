@@ -124,11 +124,14 @@
   <data name="Custom-Icon-Design-Pretty-Office-3-Product.48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Custom-Icon-Design-Pretty-Office-3-Product.48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Aha-Soft-People-Users.48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Aha-Soft-People-Users.48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Hopstarter-Soft-Scraps-Zoom.48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Hopstarter-Soft-Scraps-Zoom.48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Icons-Land-Vista-People-Office-Customer-Male-Dark.48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icons-Land-Vista-People-Office-Customer-Male-Dark.48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Graphicloads-Flat-Finance-System-settings.48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Graphicloads-Flat-Finance-System-settings.48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Custom-Icon-Design-Flatastic-11-Search-good.48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Custom-Icon-Design-Flatastic-11-Search-good.48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,8 +142,8 @@
   <data name="Custom-Icon-Design-Flatastic-9-Import-export.48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Custom-Icon-Design-Flatastic-9-Import-export.48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Hopstarter-Soft-Scraps-Zoom.48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Hopstarter-Soft-Scraps-Zoom.48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Custom-Icon-Design-Flatastic-5-Sales-by-payment-method.48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Custom-Icon-Design-Flatastic-5-Sales-by-payment-method.48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Cornmanthe3rd-Plex-System-control-panel.48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cornmanthe3rd-Plex-System-control-panel.48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,11 +166,11 @@
   <data name="Tatice-Cristal-Intense-Reload.48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Tatice-Cristal-Intense-Reload.48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Graphicloads-Flat-Finance-System-settings.48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Graphicloads-Flat-Finance-System-settings.48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Gartoon-Team-Gartoon-Misc-Stock-Edit-Bookmarks1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gartoon-Team-Gartoon-Misc-Stock-Edit-Bookmarks.481.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Aha-Soft-People-Users.48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Aha-Soft-People-Users.48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Oxygen-Icons.org-Oxygen-Actions-view-list-details.48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Oxygen-Icons.org-Oxygen-Actions-view-list-details.48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,10 +181,13 @@
   <data name="Hopstarter-Soft-Scraps-Button-Add.48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Hopstarter-Soft-Scraps-Button-Add.48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Aha-Soft-Universal-Shop-Print.48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Aha-Soft-Universal-Shop-Print.48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Hopstarter-Sleek-Xp-Basic-Delete.48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Hopstarter-Sleek-Xp-Basic-Delete.48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Custom-Icon-Design-Flatastic-5-Sales-by-payment-method.48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Custom-Icon-Design-Flatastic-5-Sales-by-payment-method.48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Hopstarter-Sleek-Xp-Basic-Lamp.48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Hopstarter-Sleek-Xp-Basic-Lamp.48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

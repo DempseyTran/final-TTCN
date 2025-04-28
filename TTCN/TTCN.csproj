@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO.cs" />
+    <Compile Include="frmBaoCaoDoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBaoCaoDoanhThu.Designer.cs">
+      <DependentUpon>frmBaoCaoDoanhThu.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDMNguyenLieu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,12 @@
     <Compile Include="frmDMSanPham.Designer.cs">
       <DependentUpon>frmDMSanPham.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHoaDonBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHoaDonBanHang.Designer.cs">
+      <DependentUpon>frmHoaDonBanHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +89,12 @@
     </Compile>
     <Compile Include="frmDMNhanVien.Designer.cs">
       <DependentUpon>frmDMNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNhapNguyenLieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNhapNguyenLieu.Designer.cs">
+      <DependentUpon>frmNhapNguyenLieu.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPhieuNhap.cs">
       <SubType>Form</SubType>
@@ -90,8 +108,17 @@
     <Compile Include="frmPhieuXuat.Designer.cs">
       <DependentUpon>frmPhieuXuat.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmXuatNguyenLieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXuatNguyenLieu.Designer.cs">
+      <DependentUpon>frmXuatNguyenLieu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmBaoCaoDoanhThu.resx">
+      <DependentUpon>frmBaoCaoDoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDMNguyenLieu.resx">
       <DependentUpon>frmDMNguyenLieu.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,17 +128,26 @@
     <EmbeddedResource Include="frmDMSanPham.resx">
       <DependentUpon>frmDMSanPham.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmHoaDonBanHang.resx">
+      <DependentUpon>frmHoaDonBanHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDMNhanVien.resx">
       <DependentUpon>frmDMNhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNhapNguyenLieu.resx">
+      <DependentUpon>frmNhapNguyenLieu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPhieuNhap.resx">
       <DependentUpon>frmPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPhieuXuat.resx">
       <DependentUpon>frmPhieuXuat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXuatNguyenLieu.resx">
+      <DependentUpon>frmXuatNguyenLieu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -198,6 +234,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Custom-Icon-Design-Flatastic-5-Sales-by-payment-method.48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Aha-Soft-Universal-Shop-Print.48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hopstarter-Sleek-Xp-Basic-Lamp.48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

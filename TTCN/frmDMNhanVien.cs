@@ -72,7 +72,7 @@ namespace TTCN
             if (txtChucVu.Text.Trim() == "")
             {
                 MessageBox.Show("Không được bỏ trống chức vụ");
-                txtDiaChi.Focus();
+                txtChucVu.Focus();
                 return false;
             }
             return true;

@@ -73,6 +73,16 @@ namespace TTCN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Aha_Soft_Universal_Shop_Print_48 {
+            get {
+                object obj = ResourceManager.GetObject("Aha-Soft-Universal-Shop-Print.48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Antrepo_Container_2_CAI_48 {
             get {
                 object obj = ResourceManager.GetObject("Antrepo-Container-2-CAI.48", resourceCulture);
@@ -206,6 +216,16 @@ namespace TTCN.Properties {
         internal static System.Drawing.Bitmap Hopstarter_Sleek_Xp_Basic_Delete_48 {
             get {
                 object obj = ResourceManager.GetObject("Hopstarter-Sleek-Xp-Basic-Delete.48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Hopstarter_Sleek_Xp_Basic_Lamp_48 {
+            get {
+                object obj = ResourceManager.GetObject("Hopstarter-Sleek-Xp-Basic-Lamp.48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -19,7 +19,6 @@ D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\bin\Debug\TTCN.e
 D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\bin\Debug\TTCN.exe
 D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\bin\Debug\TTCN.pdb
 D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.csproj.AssemblyReference.cache
-D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.csproj.SuggestedBindingRedirects.cache
 D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.frmDMNguyenLieu.resources
 D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.frmDMNhaCungCap.resources
 D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.frmDMSanPham.resources
@@ -32,3 +31,7 @@ D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.c
 D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.csproj.CoreCompileInputs.cache
 D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.exe
 D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.pdb
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.frmHoaDonBanHang.resources
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.frmBaoCaoDoanhThu.resources
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.frmXuatNguyenLieu.resources
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.frmNhapNguyenLieu.resources
