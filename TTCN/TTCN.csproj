@@ -54,6 +54,18 @@
     <Compile Include="frmBaoCaoDoanhThu.Designer.cs">
       <DependentUpon>frmBaoCaoDoanhThu.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDMSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDMSanPham.Designer.cs">
+      <DependentUpon>frmDMSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDMKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDMKhachHang.Designer.cs">
+      <DependentUpon>frmDMKhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDMNguyenLieu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,12 +77,6 @@
     </Compile>
     <Compile Include="frmDMNhaCungCap.Designer.cs">
       <DependentUpon>frmDMNhaCungCap.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDMSanPham.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDMSanPham.Designer.cs">
-      <DependentUpon>frmDMSanPham.cs</DependentUpon>
     </Compile>
     <Compile Include="frmHoaDonBanHang.cs">
       <SubType>Form</SubType>
@@ -119,14 +125,14 @@
     <EmbeddedResource Include="frmBaoCaoDoanhThu.resx">
       <DependentUpon>frmBaoCaoDoanhThu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDMSanPham.resx">
+      <DependentUpon>frmDMSanPham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDMNguyenLieu.resx">
       <DependentUpon>frmDMNguyenLieu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDMNhaCungCap.resx">
       <DependentUpon>frmDMNhaCungCap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDMSanPham.resx">
-      <DependentUpon>frmDMSanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHoaDonBanHang.resx">
       <DependentUpon>frmHoaDonBanHang.cs</DependentUpon>

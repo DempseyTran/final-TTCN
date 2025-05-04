@@ -108,7 +108,7 @@
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(700, 30);
+            this.menuStrip2.Size = new System.Drawing.Size(700, 28);
             this.menuStrip2.TabIndex = 12;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -119,21 +119,22 @@
             this.báoCáoTồnKhoToolStripMenuItem});
             this.báoCáoToolStripMenuItem.Image = global::TTCN.Properties.Resources.Custom_Icon_Design_Pretty_Office_4_Report_48;
             this.báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
-            this.báoCáoToolStripMenuItem.Size = new System.Drawing.Size(97, 26);
+            this.báoCáoToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
             this.báoCáoToolStripMenuItem.Text = "Báo cáo";
             // 
             // báoCáoDoanhThuToolStripMenuItem
             // 
             this.báoCáoDoanhThuToolStripMenuItem.Image = global::TTCN.Properties.Resources.Custom_Icon_Design_Flatastic_5_Sales_by_payment_method_48;
             this.báoCáoDoanhThuToolStripMenuItem.Name = "báoCáoDoanhThuToolStripMenuItem";
-            this.báoCáoDoanhThuToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.báoCáoDoanhThuToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.báoCáoDoanhThuToolStripMenuItem.Text = "Báo cáo doanh thu";
+            this.báoCáoDoanhThuToolStripMenuItem.Click += new System.EventHandler(this.báoCáoDoanhThuToolStripMenuItem_Click);
             // 
             // báoCáoTồnKhoToolStripMenuItem
             // 
             this.báoCáoTồnKhoToolStripMenuItem.Image = global::TTCN.Properties.Resources.Antrepo_Container_2_CAI_48;
             this.báoCáoTồnKhoToolStripMenuItem.Name = "báoCáoTồnKhoToolStripMenuItem";
-            this.báoCáoTồnKhoToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.báoCáoTồnKhoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.báoCáoTồnKhoToolStripMenuItem.Text = "Báo cáo tồn kho";
             // 
             // toolStripMenuItem4
@@ -145,7 +146,7 @@
             this.navDMSP});
             this.toolStripMenuItem4.Image = global::TTCN.Properties.Resources.Oxygen_Icons_org_Oxygen_Actions_view_list_details_48;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(114, 26);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(114, 24);
             this.toolStripMenuItem4.Text = "Danh mục ";
             // 
             // navDMNV
@@ -188,7 +189,7 @@
             this.hóaĐơnXuấtKhoToolStripMenuItem});
             this.toolStripMenuItem9.Image = global::TTCN.Properties.Resources.Graphicloads_Flat_Finance_Order_48;
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(101, 26);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(101, 24);
             this.toolStripMenuItem9.Text = "Hóa đơn";
             // 
             // toolStripMenuItem10
@@ -222,7 +223,7 @@
             this.toolStripMenuItem14});
             this.toolStripMenuItem12.Image = global::TTCN.Properties.Resources.Cornmanthe3rd_Plex_System_control_panel_48;
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(105, 26);
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(105, 24);
             this.toolStripMenuItem12.Text = "Hệ thống";
             // 
             // toolStripMenuItem13
@@ -243,7 +244,7 @@
             // 
             this.thoátToolStripMenuItem.Image = global::TTCN.Properties.Resources.Oxygen_Icons_org_Oxygen_Actions_window_close_48;
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(81, 26);
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
             this.thoátToolStripMenuItem.Text = "Thoát";
             this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
@@ -252,10 +253,10 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 30);
+            this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(700, 385);
+            this.panel1.Size = new System.Drawing.Size(700, 387);
             this.panel1.TabIndex = 13;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 

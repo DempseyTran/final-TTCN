@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace TTCN
 {
-    public partial class frmDMSanPham : Form
+    public partial class frmDMKhachHang : Form
     {
-        public frmDMSanPham()
+        public frmDMKhachHang()
         {
             InitializeComponent();
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
