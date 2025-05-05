@@ -35,3 +35,9 @@ D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.f
 D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.frmBaoCaoDoanhThu.resources
 D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.frmXuatNguyenLieu.resources
 D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.frmNhapNguyenLieu.resources
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\bin\Debug\Guna.UI2.dll
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.frmDangNhap.resources
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.frmQuenMatKhau.resources
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.csproj.Up2Date
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.FrmDMKhachHang.resources
+D:\Kì 6\Thực tập chuyên ngành\clone-test\final-TTCN\TTCN\obj\Debug\TTCN.frmBaoCaoTonKho.resources

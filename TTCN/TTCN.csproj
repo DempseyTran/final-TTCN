@@ -33,9 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.7\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,11 +60,17 @@
     <Compile Include="frmBaoCaoDoanhThu.Designer.cs">
       <DependentUpon>frmBaoCaoDoanhThu.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDMSanPham.cs">
+    <Compile Include="frmBaoCaoTonKho.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDMSanPham.Designer.cs">
-      <DependentUpon>frmDMSanPham.cs</DependentUpon>
+    <Compile Include="frmBaoCaoTonKho.Designer.cs">
+      <DependentUpon>frmBaoCaoTonKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDangNhap.Designer.cs">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDMKhachHang.cs">
       <SubType>Form</SubType>
@@ -77,6 +89,12 @@
     </Compile>
     <Compile Include="frmDMNhaCungCap.Designer.cs">
       <DependentUpon>frmDMNhaCungCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDMSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDMSanPham.Designer.cs">
+      <DependentUpon>frmDMSanPham.cs</DependentUpon>
     </Compile>
     <Compile Include="frmHoaDonBanHang.cs">
       <SubType>Form</SubType>
@@ -114,6 +132,12 @@
     <Compile Include="frmPhieuXuat.Designer.cs">
       <DependentUpon>frmPhieuXuat.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmQuenMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuenMatKhau.Designer.cs">
+      <DependentUpon>frmQuenMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmXuatNguyenLieu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,14 +149,23 @@
     <EmbeddedResource Include="frmBaoCaoDoanhThu.resx">
       <DependentUpon>frmBaoCaoDoanhThu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDMSanPham.resx">
-      <DependentUpon>frmDMSanPham.cs</DependentUpon>
+    <EmbeddedResource Include="frmBaoCaoTonKho.resx">
+      <DependentUpon>frmBaoCaoTonKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDangNhap.resx">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDMKhachHang.resx">
+      <DependentUpon>frmDMKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDMNguyenLieu.resx">
       <DependentUpon>frmDMNguyenLieu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDMNhaCungCap.resx">
       <DependentUpon>frmDMNhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDMSanPham.resx">
+      <DependentUpon>frmDMSanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHoaDonBanHang.resx">
       <DependentUpon>frmHoaDonBanHang.cs</DependentUpon>
@@ -152,6 +185,9 @@
     <EmbeddedResource Include="frmPhieuXuat.resx">
       <DependentUpon>frmPhieuXuat.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmQuenMatKhau.resx">
+      <DependentUpon>frmQuenMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmXuatNguyenLieu.resx">
       <DependentUpon>frmXuatNguyenLieu.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +201,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -246,6 +283,32 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Hopstarter-Sleek-Xp-Basic-Lamp.48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="anh\1.jpg" />
+    <Content Include="anh\10.jpg" />
+    <Content Include="anh\11.jpg" />
+    <Content Include="anh\12.jpg" />
+    <Content Include="anh\13.jpg" />
+    <Content Include="anh\14.jpg" />
+    <Content Include="anh\15.jpg" />
+    <Content Include="anh\16.jpg" />
+    <Content Include="anh\17.jpg" />
+    <Content Include="anh\18.jpg" />
+    <Content Include="anh\19.jpg" />
+    <Content Include="anh\2.jpg" />
+    <Content Include="anh\20.jpg" />
+    <Content Include="anh\21.jpg" />
+    <Content Include="anh\21.png" />
+    <Content Include="anh\22.jpg" />
+    <Content Include="anh\3.jpg" />
+    <Content Include="anh\4.jpg" />
+    <Content Include="anh\5.jpg" />
+    <Content Include="anh\6.jpg" />
+    <Content Include="anh\7.jpg" />
+    <Content Include="anh\8.jpg" />
+    <Content Include="anh\9.jpg" />
+    <Content Include="anh\9.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

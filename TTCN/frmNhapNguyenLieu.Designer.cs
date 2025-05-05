@@ -40,7 +40,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtMaPN = new System.Windows.Forms.TextBox();
-            this.txtMaNCC = new System.Windows.Forms.TextBox();
             this.txtTenNL = new System.Windows.Forms.TextBox();
             this.txtThanhTien = new System.Windows.Forms.TextBox();
             this.cbMaNL = new System.Windows.Forms.ComboBox();
@@ -56,9 +55,7 @@
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnThemNL = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtMoTa = new System.Windows.Forms.RichTextBox();
             this.dgvNguyenLieu = new System.Windows.Forms.DataGridView();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.btnThemPN = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,6 +68,7 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbMaNV = new System.Windows.Forms.ComboBox();
+            this.cbMaNCC = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietHDNhap)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -172,14 +170,6 @@
             this.txtMaPN.Size = new System.Drawing.Size(161, 22);
             this.txtMaPN.TabIndex = 12;
             // 
-            // txtMaNCC
-            // 
-            this.txtMaNCC.Location = new System.Drawing.Point(242, 195);
-            this.txtMaNCC.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMaNCC.Name = "txtMaNCC";
-            this.txtMaNCC.Size = new System.Drawing.Size(161, 22);
-            this.txtMaNCC.TabIndex = 16;
-            // 
             // txtTenNL
             // 
             this.txtTenNL.Location = new System.Drawing.Point(837, 125);
@@ -252,9 +242,7 @@
             this.groupBox2.Controls.Add(this.txtSoLuong);
             this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Controls.Add(this.btnThemNL);
-            this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.txtMoTa);
             this.groupBox2.Controls.Add(this.dgvNguyenLieu);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(71, 571);
@@ -268,26 +256,28 @@
             // 
             this.pictureBox3.BackgroundImage = global::TTCN.Properties.Resources.Hopstarter_Sleek_Xp_Basic_Lamp_48;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(813, 188);
+            this.pictureBox3.Location = new System.Drawing.Point(811, 154);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(30, 28);
             this.pictureBox3.TabIndex = 26;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(813, 188);
+            this.btnSua.Location = new System.Drawing.Point(811, 154);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 28);
             this.btnSua.TabIndex = 25;
             this.btnSua.Text = "Sửa";
             this.btnSua.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(709, 36);
+            this.label5.Location = new System.Drawing.Point(700, 57);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 16);
@@ -296,7 +286,7 @@
             // 
             // txtDonGia
             // 
-            this.txtDonGia.Location = new System.Drawing.Point(785, 33);
+            this.txtDonGia.Location = new System.Drawing.Point(776, 54);
             this.txtDonGia.Margin = new System.Windows.Forms.Padding(4);
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.ReadOnly = true;
@@ -305,7 +295,7 @@
             // 
             // txtSoLuong
             // 
-            this.txtSoLuong.Location = new System.Drawing.Point(785, 62);
+            this.txtSoLuong.Location = new System.Drawing.Point(776, 100);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(116, 22);
             this.txtSoLuong.TabIndex = 20;
@@ -314,47 +304,32 @@
             // 
             this.pictureBox1.BackgroundImage = global::TTCN.Properties.Resources.Hopstarter_Soft_Scraps_Button_Add_48;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(712, 188);
+            this.pictureBox1.Location = new System.Drawing.Point(710, 154);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(30, 28);
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnThemNL
             // 
-            this.btnThemNL.Location = new System.Drawing.Point(712, 188);
+            this.btnThemNL.Location = new System.Drawing.Point(710, 154);
             this.btnThemNL.Name = "btnThemNL";
             this.btnThemNL.Size = new System.Drawing.Size(82, 28);
             this.btnThemNL.TabIndex = 23;
             this.btnThemNL.Text = "Thêm";
             this.btnThemNL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThemNL.UseVisualStyleBackColor = true;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(666, 127);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(40, 16);
-            this.label18.TabIndex = 22;
-            this.label18.Text = "Mô tả";
+            this.btnThemNL.Click += new System.EventHandler(this.btnThemNL_Click);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(709, 65);
+            this.label16.Location = new System.Drawing.Point(700, 103);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(60, 16);
             this.label16.TabIndex = 20;
             this.label16.Text = "Số lượng";
-            // 
-            // txtMoTa
-            // 
-            this.txtMoTa.Location = new System.Drawing.Point(712, 101);
-            this.txtMoTa.Name = "txtMoTa";
-            this.txtMoTa.Size = new System.Drawing.Size(189, 69);
-            this.txtMoTa.TabIndex = 21;
-            this.txtMoTa.Text = "";
             // 
             // dgvNguyenLieu
             // 
@@ -389,6 +364,7 @@
             this.dgvNguyenLieu.RowTemplate.Height = 24;
             this.dgvNguyenLieu.Size = new System.Drawing.Size(593, 176);
             this.dgvNguyenLieu.TabIndex = 13;
+            this.dgvNguyenLieu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNguyenLieu_CellClick);
             // 
             // menuStrip2
             // 
@@ -485,17 +461,27 @@
             // cbMaNV
             // 
             this.cbMaNV.FormattingEnabled = true;
-            this.cbMaNV.Location = new System.Drawing.Point(241, 160);
+            this.cbMaNV.Location = new System.Drawing.Point(240, 157);
             this.cbMaNV.Margin = new System.Windows.Forms.Padding(4);
             this.cbMaNV.Name = "cbMaNV";
             this.cbMaNV.Size = new System.Drawing.Size(162, 24);
             this.cbMaNV.TabIndex = 39;
+            // 
+            // cbMaNCC
+            // 
+            this.cbMaNCC.FormattingEnabled = true;
+            this.cbMaNCC.Location = new System.Drawing.Point(241, 190);
+            this.cbMaNCC.Margin = new System.Windows.Forms.Padding(4);
+            this.cbMaNCC.Name = "cbMaNCC";
+            this.cbMaNCC.Size = new System.Drawing.Size(163, 24);
+            this.cbMaNCC.TabIndex = 40;
             // 
             // frmNhapNguyenLieu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 849);
+            this.Controls.Add(this.cbMaNCC);
             this.Controls.Add(this.cbMaNV);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip2);
@@ -506,7 +492,6 @@
             this.Controls.Add(this.cbMaNL);
             this.Controls.Add(this.txtThanhTien);
             this.Controls.Add(this.txtTenNL);
-            this.Controls.Add(this.txtMaNCC);
             this.Controls.Add(this.txtMaPN);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label9);
@@ -546,7 +531,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtMaPN;
-        private System.Windows.Forms.TextBox txtMaNCC;
         private System.Windows.Forms.TextBox txtTenNL;
         private System.Windows.Forms.TextBox txtThanhTien;
         private System.Windows.Forms.ComboBox cbMaNL;
@@ -560,9 +544,7 @@
         private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnThemNL;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.RichTextBox txtMoTa;
         private System.Windows.Forms.DataGridView dgvNguyenLieu;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem btnThemPN;
@@ -577,5 +559,6 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cbMaNV;
+        private System.Windows.Forms.ComboBox cbMaNCC;
     }
 }

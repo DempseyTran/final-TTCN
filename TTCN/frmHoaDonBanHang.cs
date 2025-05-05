@@ -306,7 +306,7 @@ namespace TTCN
 
         private void traCứuKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmDMKhachHang frmDMKhachHang = new frmDMKhachHang();
+            FrmDMKhachHang frmDMKhachHang = new FrmDMKhachHang();
             frmDMKhachHang.ShowDialog();
         }
 

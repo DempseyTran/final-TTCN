@@ -85,6 +85,18 @@ namespace TTCN
             frmBaoCaoDoanhThu frmBCDT = new frmBaoCaoDoanhThu();
             frmBCDT.ShowDialog();
         }
+
+        private void danhMụcKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDMKhachHang frmDMKhachHang = new FrmDMKhachHang();
+            frmDMKhachHang.ShowDialog();
+        }
+
+        private void báoCáoTồnKhoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBaoCaoTonKho frmBC = new frmBaoCaoTonKho();
+            frmBC.ShowDialog();
+        }
     }
 
 }

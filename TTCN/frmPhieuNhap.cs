@@ -16,5 +16,16 @@ namespace TTCN
         {
             InitializeComponent();
         }
+        private void LoadDataPhieuNhap()
+        {
+            DAO.Connect();
+            string sql = "SELECT * FROM PhieuNhap";
+            dgvPhieuNhap.DataSource = DAO.LoadDataToTable(sql);
+            DAO.Close();
+        }
+        private void frmPhieuNhap_Load(object sender, EventArgs e)
+        {
+            LoadDataPhieuNhap();
+        }
     }
 }
