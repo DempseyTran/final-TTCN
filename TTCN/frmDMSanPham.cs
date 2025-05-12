@@ -10,9 +10,7 @@ namespace TTCN
 {
     public partial class frmDMSanPham : Form
     {
-        SqlConnection conn = DAO.conn;
         string fileAnh;
-        DataTable dtSanPham = new DataTable();
         public frmDMSanPham()
         {
             InitializeComponent();
