@@ -84,7 +84,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label1.Location = new System.Drawing.Point(281, 28);
+            this.label1.Location = new System.Drawing.Point(289, 41);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(465, 31);
@@ -213,6 +213,7 @@
             this.dgvChiTietHDNhap.RowHeadersWidth = 51;
             this.dgvChiTietHDNhap.Size = new System.Drawing.Size(864, 146);
             this.dgvChiTietHDNhap.TabIndex = 29;
+            this.dgvChiTietHDNhap.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChiTietHDNhap_CellContentClick);
             // 
             // label10
             // 
@@ -378,7 +379,7 @@
             this.traCứuKháchHàngToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1067, 28);
+            this.menuStrip2.Size = new System.Drawing.Size(1067, 30);
             this.menuStrip2.TabIndex = 33;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -396,6 +397,7 @@
             this.btnLuuPN.Name = "btnLuuPN";
             this.btnLuuPN.Size = new System.Drawing.Size(145, 24);
             this.btnLuuPN.Text = "Lưu phiếu nhập";
+            this.btnLuuPN.Click += new System.EventHandler(this.btnLuuPN_Click);
             // 
             // btnXoaPN
             // 
@@ -503,6 +505,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmNhapNguyenLieu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPhieuNhapKho";
             this.Load += new System.EventHandler(this.frmNhapNguyenLieu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietHDNhap)).EndInit();

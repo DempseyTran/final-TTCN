@@ -126,6 +126,7 @@
             this.Controls.Add(this.btnXemBaoCao);
             this.Controls.Add(this.dgvTonKho);
             this.Name = "frmBaoCaoTonKho";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Báo Cáo Tồn Kho";
             this.Load += new System.EventHandler(this.frmBaoCaoTonKho_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTonKho)).EndInit();

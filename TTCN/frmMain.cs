@@ -16,21 +16,67 @@ namespace TTCN
         {
             InitializeComponent();
         }
-
+        public static class Session
+        {
+            public static string TenDangNhap;
+            public static string MaNhanVien;
+            public static string ChucVu; // VD: "Quản lý", "Kế toán", "Kho", "Nhân viên"
+        }
         private void frmMain_Load(object sender, EventArgs e)
         {
             DAO.Connect();
-        }
+            string chucVu = Session.ChucVu;
 
-   
+            switch (chucVu)
+            {
+                case "Quản lý":
+                    // Không giới hạn quyền
+                    break;
 
-      
+                case "Kho":
+                    // Chỉ được xem phiếu xuất
+                    báoCáoDoanhThuToolStripMenuItem.Visible = false;
+                    toolStripMenuItem4.Visible = false;
+                    toolStripMenuItem10.Visible = false;
+                    //nhậpKhoNguyênLiệuToolStripMenuItem.Visible = true;
+                    //xuấtKhoNguyênLiệuToolStripMenuItem.Visible = true;
+                    báoCáoTồnKhoToolStripMenuItem.Visible = true;
+                    toolStripMenuItem11.Visible = true;
+                    // Ẩn các chức năng khác
+                    break;
 
-        
+                case "Kế toán":
+                    // Chỉ được xem báo cáo
+                    báoCáoToolStripMenuItem.Visible = true;
+                    //nhậpKhoNguyênLiệuToolStripMenuItem.Visible = true;
+                    //xuấtKhoNguyênLiệuToolStripMenuItem.Visible = true;
+                    toolStripMenuItem9.Visible = true;
+                    navDMNL.Visible = true;
+                    navDMNCC.Visible = false;
+                    navDMSP.Visible = false;
+                    navDMNV.Visible = false;
+                    navDMKH.Visible = false;
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
+                    // Cho hiện báo cáo (nếu có)
+                    break;
 
+                case "Nhân viên":
+                    // Chỉ xem hóa đơn hoặc giao diện đơn giản
+                    //nhậpKhoNguyênLiệuToolStripMenuItem.Visible = false;
+                    //xuấtKhoNguyênLiệuToolStripMenuItem.Visible = true;
+
+                    báoCáoToolStripMenuItem.Visible = false;
+                    toolStripMenuItem4.Visible = false;
+                    toolStripMenuItem11.Visible = false;
+                    // Ẩn thêm menu hệ thống nếu cần
+                    // hệThốngToolStripMenuItem.Visible = false;
+                    break;
+
+                default:
+                    MessageBox.Show("Không xác định chức vụ, sẽ đóng chương trình.");
+                    this.Close();
+                    break;
+            }
         }
 
         private void navDMNV_Click(object sender, EventArgs e)
@@ -47,7 +93,9 @@ namespace TTCN
 
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+            frmDangNhap frmDangNhap = new frmDangNhap();
+            frmDangNhap.Show();
         }
 
         private void navDMNL_Click(object sender, EventArgs e)
@@ -97,6 +145,8 @@ namespace TTCN
             frmBaoCaoTonKho frmBC = new frmBaoCaoTonKho();
             frmBC.ShowDialog();
         }
+
+       
     }
 
 }

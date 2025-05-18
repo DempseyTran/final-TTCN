@@ -41,10 +41,21 @@ namespace TTCN
         {
             this.Close();
         }
-
+        private void LoadDataToComboTraCuuLoaiNguyenLieu()
+        {
+            string sql = "SELECT DISTINCT loainguyenlieu FROM NguyenLieu";
+            SqlCommand command = new SqlCommand(sql, DAO.conn);
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            cboTraCuuLoaiNguyenLieu.DataSource = dt;
+            cboTraCuuLoaiNguyenLieu.DisplayMember = "loainguyenlieu";
+            cboTraCuuLoaiNguyenLieu.ValueMember = "loainguyenlieu";
+        }
         private void frmDMNguyenLieu_Load(object sender, EventArgs e)
         {
             btnLuu.Enabled = false;
+            LoadDataToComboTraCuuLoaiNguyenLieu();
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
             LoadDataToGridView();
@@ -135,6 +146,7 @@ namespace TTCN
             btnXoa.Enabled = true;
             btnLuu.Enabled = false;
             btnXuatPhieu.Enabled = true;
+            LoadDataToGridView();
 
         }
 
@@ -177,6 +189,86 @@ namespace TTCN
                 {
                     DAO.Close(); // 👉 Luôn đóng lại kết nối
                 }
+            }
+        }
+
+        private void dgvDMNguyenLieu_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //hiển thị thông tin nguyên liệu lên các ô textbox
+            int i = dgvDMNguyenLieu.CurrentRow.Index;
+            txtMaNguyenLieu.Text = dgvDMNguyenLieu.Rows[i].Cells[0].Value.ToString();
+            txtTenNguyenLieu.Text = dgvDMNguyenLieu.Rows[i].Cells[1].Value.ToString();
+            txtLoaiNguyenLieu.Text = dgvDMNguyenLieu.Rows[i].Cells[2].Value.ToString();
+            txtDonGiaNhap.Text = dgvDMNguyenLieu.Rows[i].Cells[3].Value.ToString();
+            txtDVT.Text = dgvDMNguyenLieu.Rows[i].Cells[4].Value.ToString();
+            txtSoLuong.Text = dgvDMNguyenLieu.Rows[i].Cells[5].Value.ToString();
+            txtDMSX.Text = dgvDMNguyenLieu.Rows[i].Cells[6].Value.ToString();
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            BtnThem.Enabled = false;
+            btnLuu.Enabled = false;
+            btnXuatPhieu.Enabled = false;
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // lấy dữ liệu từ txtTraCuuTenNL và cboTraCuuLoaiNguyenLieu để tra cứu
+            string TenNlTraCuu = txtTraCuuTenNL.Text.Trim();
+            string LoaiNlTraCuu = cboTraCuuLoaiNguyenLieu.SelectedValue.ToString();
+            string sqlTraCuu = "SELECT * FROM NguyenLieu WHERE tennguyenlieu LIKE N'%" + TenNlTraCuu + "%' AND loainguyenlieu = N'" + LoaiNlTraCuu + "'";
+            try
+            {
+                DAO.Connect();
+                SqlCommand command = new SqlCommand(sqlTraCuu, DAO.conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dgvDMNguyenLieu.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi khi tra cứu dữ liệu: " + ex.Message);
+            }
+            finally
+            {
+                DAO.Close();
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            // kiểm tra xem có chọn nguyên liệu nào không
+            if (dgvDMNguyenLieu.CurrentRow == null)
+            {
+                MessageBox.Show("Vui lòng chọn nguyên liệu để xóa!");
+                return;
+            }
+            // xác nhận xóa
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa nguyên liệu này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result != DialogResult.Yes)
+            {
+                return; // nếu không đồng ý thì thoát
+            }
+            // nếu đồng ý thì thực hiện xóa
+            // lấy mã nguyên liệu từ ô txtMaNguyenLieu
+            string MaNguyenLieu = txtMaNguyenLieu.Text.Trim();
+            string sqlDelete = "DELETE FROM NguyenLieu WHERE manguyenlieu = N'" + MaNguyenLieu + "'";
+            try
+            {
+                DAO.Connect();
+                SqlCommand command = new SqlCommand(sqlDelete, DAO.conn);
+                command.ExecuteNonQuery();
+                MessageBox.Show("Xóa thành công!");
+                LoadDataToGridView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi: " + ex.Message);
+            }
+            finally
+            {
+                DAO.Close();
             }
         }
     }

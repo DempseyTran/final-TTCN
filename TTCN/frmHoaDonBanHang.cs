@@ -1,14 +1,20 @@
-﻿using System;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
+using System.Diagnostics;
+using System.IO;
+//using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
+
 
 namespace TTCN
 {
@@ -95,9 +101,10 @@ namespace TTCN
                 return;
             }
 
-            string HienThiCTHDQuery = "SELECT MaSanPham, SoLuong, DonGia, ThanhTien, MoTa " +
-                                      "FROM ChiTietHoaDon " +
-                                      "WHERE MaHoaDon = @MaHD";
+            string HienThiCTHDQuery = @"SELECT c.MaSanPham, s.TenSanPham, c.SoLuong, c.DonGia, c.ThanhTien, c.MoTa 
+                     FROM ChiTietHoaDon c 
+                     INNER JOIN SanPham s ON c.MaSanPham = s.MaSanPham 
+                     WHERE c.MaHoaDon = @MaHD";
 
             try
             {
@@ -167,59 +174,6 @@ namespace TTCN
                 MessageBox.Show("Không để trông mã nhân viên");
                 return;
             }
-            try
-            {
-                DAO.Connect(); // Đảm bảo kết nối mở
-                string sqlDiem = "SELECT DiemTichLuy FROM KhachHang WHERE MaKhachHang = N'" + maKH + "'";
-                SqlCommand cmdDiem = new SqlCommand(sqlDiem, DAO.conn);
-                object result = cmdDiem.ExecuteScalar();
-                int diemTichLuy = result != null ? Convert.ToInt32(result) : 0;
-
-                // Nếu điểm tích lũy chia hết cho 10 -> giảm 20%
-                if (diemTichLuy % 10 == 0 && diemTichLuy != 0)
-                {
-                    MessageBox.Show("Hóa đơn này được khuyến mãi tích điểm! Giảm 20% tổng tiền.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi lấy điểm tích lũy: " + ex.Message);
-            }
-            finally
-            {
-                DAO.Close(); // Đóng kết nối
-            }
-
-            //Các nút
-            btnThemHoaDon.Enabled = false;
-            btnLuuHoaDon.Enabled = true; // Bật nút Lưu Hóa Đơn
-            txtMaHD.ReadOnly = true; // Đặt txtMaHD thành chỉ đọc
-            btnGhiNhanHoaDon.Enabled = true;
-            
-
-            // Kiểm tra nếu khách hàng có lần mua chia hết cho 10
-            try
-            {
-                DAO.Connect();
-                string query = "SELECT COUNT(*) FROM HoaDon WHERE MaKhachHang = N'" + maKH + "'";
-                SqlCommand cmdSoLanMua = new SqlCommand(query, DAO.conn);
-                int soLanMua = (int)cmdSoLanMua.ExecuteScalar();
-
-                if (soLanMua > 0 && soLanMua % 10 == 0)
-                {
-                    giamGia = 20 / 100; // Giảm giá 20%
-                    MessageBox.Show("Khách hàng đã mua 10 lần, được giảm giá 20%!");
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi kiểm tra số lần mua: " + ex.Message);
-            }
-            finally
-            {
-                DAO.Close();
-            }
 
             // Thêm hóa đơn vào bảng HoaDon
             string sqlInsertHoaDon = "INSERT INTO HoaDon (MaHoaDon, ThoiGian, MaNhanVien, MaKhachHang, TongTien, GiamGia) VALUES (" +
@@ -248,11 +202,61 @@ namespace TTCN
             {
                 DAO.Close();
             }
+
+            // Kiểm tra điểm tích lũy của khách hàng
+            try
+            {
+                DAO.Connect(); // Đảm bảo kết nối mở
+                string sqlDiem = "SELECT DiemTichLuy FROM KhachHang WHERE MaKhachHang = N'" + maKH + "'";
+                SqlCommand cmdDiem = new SqlCommand(sqlDiem, DAO.conn);
+                object result = cmdDiem.ExecuteScalar();
+                int diemTichLuy = result != null ? Convert.ToInt32(result) : 0;
+
+                // Nếu điểm tích lũy chia hết cho 10 -> giảm 20%
+                if (diemTichLuy % 10 == 0 && diemTichLuy != 0)
+                {
+                    MessageBox.Show("Hóa đơn này được khuyến mãi tích điểm! Giảm 20% tổng tiền.");
+                    giamGia = 0.2m; // kiểu decimal, giảm 20%
+                    txtGiamGia.Text = (giamGia * 100).ToString("0") + "%";
+
+                    //Update lại giảm giá = 0.2m trong cơ sở dữ liệu
+                    try
+                    {
+                        string sqlUpdateGiamGia = "UPDATE HoaDon SET GiamGia = @GiamGia WHERE MaHoaDon = @MaHD";
+                        SqlCommand commandGiamGia = new SqlCommand(sqlUpdateGiamGia, DAO.conn);
+                        commandGiamGia.Parameters.AddWithValue("@GiamGia", giamGia);
+                        commandGiamGia.Parameters.AddWithValue("@MaHD", maHD);
+                        commandGiamGia.ExecuteNonQuery();
+                        MessageBox.Show("Cập nhật giảm giá thành công!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi khi cập nhật giảm giá: " + ex.Message);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy điểm tích lũy: " + ex.Message);
+            }
+            finally
+            {
+                DAO.Close(); // Đóng kết nối
+            }
+
+            //Các nút
+            btnThemHoaDon.Enabled = false;
+            btnLuuHoaDon.Enabled = true; // Bật nút Lưu Hóa Đơn
+            txtMaHD.ReadOnly = true; // Đặt txtMaHD thành chỉ đọc
+
+
+            
+
         }
 
-        
 
-        
+
+
 
         private void btnLuuHoaDon_Click(object sender, EventArgs e)
         {
@@ -315,7 +319,6 @@ namespace TTCN
             btnThemHoaDon.Enabled = true;
             btnLuuHoaDon.Enabled = false;
             btnXoaHoaDon.Enabled = true;
-            btnGhiNhanHoaDon.Enabled = false;
             dgvChiTietHD.DataSource = null;
             dgvSanPham.DataSource = null;
 
@@ -506,8 +509,8 @@ namespace TTCN
             else
             {
 
-                txtSoLuong.Text = dgvChiTietHD.CurrentRow.Cells[1].Value.ToString();
-                txtMoTa.Text = dgvChiTietHD.CurrentRow.Cells[4].Value.ToString();
+                txtSoLuong.Text = dgvChiTietHD.CurrentRow.Cells[2].Value.ToString();
+                txtMoTa.Text = dgvChiTietHD.CurrentRow.Cells[5].Value.ToString();
             }
         }
 
@@ -620,6 +623,165 @@ namespace TTCN
                 tinhTongTien();
                 DAO.Close();
             }
+        }
+
+        private void btnInHoaDon_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 1. Lấy thông tin
+                string maKhach = txtMaKH.Text;
+                DateTime ngayBan = dtpNgayBan.Value;
+                string soHD = txtMaHD.Text;
+
+                // 2. Đường dẫn lưu
+                string folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                string pdfPath = Path.Combine(folder, $"HD_{soHD}.pdf");
+
+                // 3. Font hỗ trợ tiếng Việt
+                BaseFont bf = BaseFont.CreateFont(@"c:\windows\fonts\times.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+                iTextSharp.text.Font titleFont = new iTextSharp.text.Font(bf, 16, iTextSharp.text.Font.BOLD);
+                iTextSharp.text.Font normalFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.NORMAL);
+                iTextSharp.text.Font boldFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.BOLD);
+
+                // 4. Tạo PDF
+                Document doc = new Document(PageSize.A4, 36, 36, 36, 36);
+                PdfWriter.GetInstance(doc, new FileStream(pdfPath, FileMode.Create));
+                doc.Open();
+
+                // 5. Tiêu đề
+                Paragraph title = new Paragraph("HÓA ĐƠN BÁN HÀNG", titleFont)
+                {
+                    Alignment = Element.ALIGN_CENTER,
+                    SpacingAfter = 20
+                };
+                doc.Add(title);
+
+                // 6. Thông tin chung
+                PdfPTable infoTable = new PdfPTable(2)
+                {
+                    WidthPercentage = 80f,
+                    SpacingAfter = 20f
+                };
+                infoTable.SetWidths(new float[] { 1f, 2f });
+                infoTable.AddCell(new PdfPCell(new Phrase("Số hóa đơn:", normalFont)) { Border = Rectangle.NO_BORDER });
+                infoTable.AddCell(new PdfPCell(new Phrase(soHD, normalFont)) { Border = Rectangle.NO_BORDER });
+                infoTable.AddCell(new PdfPCell(new Phrase("Mã khách hàng:", normalFont)) { Border = Rectangle.NO_BORDER });
+                infoTable.AddCell(new PdfPCell(new Phrase(maKhach, normalFont)) { Border = Rectangle.NO_BORDER });
+                infoTable.AddCell(new PdfPCell(new Phrase("Ngày bán:", normalFont)) { Border = Rectangle.NO_BORDER });
+                infoTable.AddCell(new PdfPCell(new Phrase(ngayBan.ToString("dd/MM/yyyy HH:mm"), normalFont)) { Border = Rectangle.NO_BORDER });
+                doc.Add(infoTable);
+
+                // 7. Bảng sản phẩm
+                PdfPTable tbl = new PdfPTable(6)
+                {
+                    WidthPercentage = 100f,
+                    SpacingBefore = 10f
+                };
+                tbl.SetWidths(new float[] { 0.7f, 1.5f, 3f, 1f, 1.5f, 2f });
+
+                string[] headers = { "STT", "Mã SP", "Tên SP", "SL", "Đơn giá", "Thành tiền" };
+                foreach (var h in headers)
+                {
+                    var cell = new PdfPCell(new Phrase(h, boldFont))
+                    {
+                        HorizontalAlignment = Element.ALIGN_CENTER,
+                        BackgroundColor = BaseColor.LIGHT_GRAY,
+                        Padding = 5
+                    };
+                    tbl.AddCell(cell);
+                }
+
+                // Duyệt DGV
+                //Lấy tổng tiền và giảm giá từ cơ sở dữ liệu
+                
+                int stt = 1;
+                foreach (DataGridViewRow row in dgvChiTietHD.Rows)
+                {
+                    if (row.IsNewRow) continue;
+
+                    string maSP = row.Cells["MaSanPham"].Value?.ToString();
+                    string tenSP = row.Cells["TenSanPham"].Value?.ToString() ?? "";
+                    int soLuong = Convert.ToInt32(row.Cells["SoLuong"].Value);
+                    decimal donGia = Convert.ToDecimal(row.Cells["DonGia"].Value);
+                    decimal thanhTien = soLuong * donGia;
+                
+                    tbl.AddCell(new PdfPCell(new Phrase(stt.ToString(), normalFont)) { HorizontalAlignment = Element.ALIGN_CENTER });
+                    tbl.AddCell(new PdfPCell(new Phrase(maSP, normalFont)) { Padding = 5 });
+                    tbl.AddCell(new PdfPCell(new Phrase(tenSP, normalFont)));
+                    tbl.AddCell(new PdfPCell(new Phrase(soLuong.ToString(), normalFont)) { HorizontalAlignment = Element.ALIGN_RIGHT });
+                    tbl.AddCell(new PdfPCell(new Phrase(donGia.ToString("#,##0"), normalFont)) { HorizontalAlignment = Element.ALIGN_RIGHT });
+                    tbl.AddCell(new PdfPCell(new Phrase(thanhTien.ToString("#,##0"), normalFont)) { HorizontalAlignment = Element.ALIGN_RIGHT });
+
+                    stt++;
+                }
+
+                // Tính giảm giá & tổng tiền sau giảm
+
+                decimal tongTienSauGiam = decimal.Parse(txtTongTien.Text);
+                string giamGiaText = txtGiamGia.Text.Replace("%", "").Trim();
+                decimal giamGia = decimal.Parse(giamGiaText) / 100;
+                
+
+                // Thêm dòng tổng cộng
+                PdfPCell emptyCell = new PdfPCell(new Phrase("")) { Border = Rectangle.NO_BORDER };
+                for (int i = 0; i < 4; i++) tbl.AddCell(emptyCell);
+
+                tbl.AddCell(new PdfPCell(new Phrase("TỔNG CỘNG", boldFont))
+                {
+                    HorizontalAlignment = Element.ALIGN_RIGHT,
+                    Border = Rectangle.NO_BORDER
+                });
+                tbl.AddCell(new PdfPCell(new Phrase(tongTienSauGiam.ToString("#,##0"), boldFont))
+                {
+                    HorizontalAlignment = Element.ALIGN_RIGHT,
+                    BackgroundColor = BaseColor.YELLOW
+                });
+
+                // Dòng Giảm giá
+                for (int i = 0; i < 4; i++) tbl.AddCell(emptyCell);
+                tbl.AddCell(new PdfPCell(new Phrase("GIẢM GIÁ (%)", boldFont))
+                {
+                    HorizontalAlignment = Element.ALIGN_RIGHT,
+                    Border = Rectangle.NO_BORDER
+                });
+                tbl.AddCell(new PdfPCell(new Phrase((giamGia * 100).ToString("0") + "%", boldFont))
+                {
+                    HorizontalAlignment = Element.ALIGN_RIGHT
+                });
+
+                // Dòng Tổng tiền sau giảm
+                for (int i = 0; i < 4; i++) tbl.AddCell(emptyCell);
+                tbl.AddCell(new PdfPCell(new Phrase("TỔNG TIỀN", boldFont))
+                {
+                    HorizontalAlignment = Element.ALIGN_RIGHT,
+                    Border = Rectangle.NO_BORDER
+                });
+                tbl.AddCell(new PdfPCell(new Phrase(tongTienSauGiam.ToString("#,##0"), boldFont))
+                {
+                    HorizontalAlignment = Element.ALIGN_RIGHT,
+                    BackgroundColor = BaseColor.YELLOW
+                });
+
+                doc.Add(tbl);
+
+                // Ký tên
+                Paragraph footer = new Paragraph("\nNgười lập hóa đơn\n\n\n(Ký tên)", normalFont)
+                {
+                    Alignment = Element.ALIGN_RIGHT,
+                    SpacingBefore = 30
+                };
+                doc.Add(footer);
+
+                // Kết thúc
+                doc.Close();
+                Process.Start(new ProcessStartInfo(pdfPath) { UseShellExecute = true });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tạo PDF:\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

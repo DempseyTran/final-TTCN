@@ -42,7 +42,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtMaNV = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbMaNV = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dtpTgDuyet = new System.Windows.Forms.DateTimePicker();
             this.dtpTgXuat = new System.Windows.Forms.DateTimePicker();
@@ -132,6 +132,7 @@
             this.dgvPhieuXuat.RowTemplate.Height = 24;
             this.dgvPhieuXuat.Size = new System.Drawing.Size(466, 278);
             this.dgvPhieuXuat.TabIndex = 0;
+            this.dgvPhieuXuat.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhieuXuat_CellClick);
             // 
             // label13
             // 
@@ -168,13 +169,13 @@
             this.txtMaNV.Size = new System.Drawing.Size(133, 22);
             this.txtMaNV.TabIndex = 15;
             // 
-            // comboBox2
+            // cbMaNV
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(163, 125);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(328, 24);
-            this.comboBox2.TabIndex = 47;
+            this.cbMaNV.FormattingEnabled = true;
+            this.cbMaNV.Location = new System.Drawing.Point(163, 125);
+            this.cbMaNV.Name = "cbMaNV";
+            this.cbMaNV.Size = new System.Drawing.Size(328, 24);
+            this.cbMaNV.TabIndex = 47;
             // 
             // panel2
             // 
@@ -342,6 +343,7 @@
             this.button1.Size = new System.Drawing.Size(36, 37);
             this.button1.TabIndex = 43;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmPhieuXuat
             // 
@@ -352,11 +354,12 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cbMaNV);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.menuStrip1);
             this.Name = "frmPhieuXuat";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPhieuXuat";
             this.Load += new System.EventHandler(this.frmPhieuXuat_Load);
             this.contextMenuStrip1.ResumeLayout(false);
@@ -393,7 +396,7 @@
         private System.Windows.Forms.ToolStripMenuItem sửaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xóaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lưuToolStripMenuItem;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbMaNV;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtMaPX;
         private System.Windows.Forms.Label label8;

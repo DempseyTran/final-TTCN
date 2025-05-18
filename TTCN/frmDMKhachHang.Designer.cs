@@ -185,6 +185,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmDMKhachHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Danh mục Khách  Hàng";
             this.Load += new System.EventHandler(this.FrmDMKhachHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();

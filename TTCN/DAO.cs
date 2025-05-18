@@ -20,7 +20,7 @@ namespace TTCN
             if (conn == null)
             {
                 conn = new SqlConnection();
-                conn.ConnectionString = "Data Source=NGU\\SQLEXPRESS01;Initial Catalog=QlyBanHang;Integrated Security=True";
+                conn.ConnectionString = "Data Source=NGU\\SQLEXPRESS01;Initial Catalog=QlyBanHang;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
             }
             if (conn.State != ConnectionState.Open)
             {

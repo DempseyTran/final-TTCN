@@ -322,6 +322,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "frmDMNhaCungCap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDMNhaCungCap";
             this.Load += new System.EventHandler(this.frmDMNhaCungCap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNCC)).EndInit();

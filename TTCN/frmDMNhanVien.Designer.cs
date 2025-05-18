@@ -56,16 +56,17 @@
             this.lbGioiTinh = new System.Windows.Forms.Label();
             this.lbSoDienThoai = new System.Windows.Forms.Label();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.txtTraCuuBox = new System.Windows.Forms.TextBox();
+            this.txtTraCuuTenNV = new System.Windows.Forms.TextBox();
             this.lbTraCuu = new System.Windows.Forms.Label();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.BtnThem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSua = new System.Windows.Forms.ToolStripMenuItem();
             this.btnXoa = new System.Windows.Forms.ToolStripMenuItem();
             this.btnLuu = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnThoat = new System.Windows.Forms.ToolStripMenuItem();
             this.btnHuyBo = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnThoat = new System.Windows.Forms.ToolStripMenuItem();
             this.btnTraCuu = new System.Windows.Forms.Button();
+            this.tạoTàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -92,6 +93,7 @@
             this.dgvNhanVien.Size = new System.Drawing.Size(463, 328);
             this.dgvNhanVien.TabIndex = 0;
             this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
+            this.dgvNhanVien.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellDoubleClick);
             // 
             // contextMenuStrip1
             // 
@@ -319,13 +321,13 @@
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             // 
-            // txtTraCuuBox
+            // txtTraCuuTenNV
             // 
-            this.txtTraCuuBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTraCuuBox.Location = new System.Drawing.Point(615, 46);
-            this.txtTraCuuBox.Name = "txtTraCuuBox";
-            this.txtTraCuuBox.Size = new System.Drawing.Size(111, 27);
-            this.txtTraCuuBox.TabIndex = 20;
+            this.txtTraCuuTenNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTraCuuTenNV.Location = new System.Drawing.Point(615, 46);
+            this.txtTraCuuTenNV.Name = "txtTraCuuTenNV";
+            this.txtTraCuuTenNV.Size = new System.Drawing.Size(111, 27);
+            this.txtTraCuuTenNV.TabIndex = 20;
             // 
             // lbTraCuu
             // 
@@ -346,6 +348,7 @@
             this.btnXoa,
             this.btnLuu,
             this.btnHuyBo,
+            this.tạoTàiKhoảnToolStripMenuItem,
             this.btnThoat});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
@@ -385,14 +388,6 @@
             this.btnLuu.Text = "Lưu";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
-            // btnThoat
-            // 
-            this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(81, 24);
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-            // 
             // btnHuyBo
             // 
             this.btnHuyBo.Image = global::TTCN.Properties.Resources.Hopstarter_Sleek_Xp_Basic_Delete_48;
@@ -400,6 +395,14 @@
             this.btnHuyBo.Size = new System.Drawing.Size(91, 24);
             this.btnHuyBo.Text = "Hủy bỏ";
             this.btnHuyBo.Click += new System.EventHandler(this.btnHuyBo_Click);
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(81, 24);
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnTraCuu
             // 
@@ -410,6 +413,15 @@
             this.btnTraCuu.Size = new System.Drawing.Size(41, 33);
             this.btnTraCuu.TabIndex = 6;
             this.btnTraCuu.UseVisualStyleBackColor = true;
+            this.btnTraCuu.Click += new System.EventHandler(this.btnTraCuu_Click);
+            // 
+            // tạoTàiKhoảnToolStripMenuItem
+            // 
+            this.tạoTàiKhoảnToolStripMenuItem.Image = global::TTCN.Properties.Resources.Aha_Soft_People_Users_48;
+            this.tạoTàiKhoảnToolStripMenuItem.Name = "tạoTàiKhoảnToolStripMenuItem";
+            this.tạoTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(133, 24);
+            this.tạoTàiKhoảnToolStripMenuItem.Text = "Tạo tài khoản";
+            this.tạoTàiKhoảnToolStripMenuItem.Click += new System.EventHandler(this.tạoTàiKhoảnToolStripMenuItem_Click);
             // 
             // frmDMNhanVien
             // 
@@ -418,13 +430,14 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.lbTraCuu);
-            this.Controls.Add(this.txtTraCuuBox);
+            this.Controls.Add(this.txtTraCuuTenNV);
             this.Controls.Add(this.btnTraCuu);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.cbChucVuFilter);
             this.Controls.Add(this.lbChucVuFilTer);
             this.Controls.Add(this.panel1);
             this.Name = "frmDMNhanVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NhanVien";
             this.Load += new System.EventHandler(this.frmDMNhanVien_Load);
             this.panel1.ResumeLayout(false);
@@ -466,7 +479,7 @@
         private System.Windows.Forms.DataGridView dgvNhanVien;
         private System.Windows.Forms.RadioButton rabtnNu;
         private System.Windows.Forms.Button btnTraCuu;
-        private System.Windows.Forms.TextBox txtTraCuuBox;
+        private System.Windows.Forms.TextBox txtTraCuuTenNV;
         private System.Windows.Forms.Label lbTraCuu;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem BtnThem;
@@ -479,5 +492,6 @@
         private System.Windows.Forms.MaskedTextBox mskNgaysinh;
         private System.Windows.Forms.MaskedTextBox mskDienthoai;
         private System.Windows.Forms.ToolStripMenuItem btnHuyBo;
+        private System.Windows.Forms.ToolStripMenuItem tạoTàiKhoảnToolStripMenuItem;
     }
 }

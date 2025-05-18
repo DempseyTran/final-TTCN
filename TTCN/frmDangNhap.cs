@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using static System.Collections.Specialized.BitVector32;
 
 namespace TTCN
 {
@@ -20,7 +21,7 @@ namespace TTCN
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -52,55 +53,105 @@ namespace TTCN
         {
             this.Close();
         }
-
+        public static class Session
+        {
+            public static string TenDangNhap;
+            public static string MaNhanVien;
+            public static string ChucVu; // Lưu chức vụ từ bảng NhanVien
+        }
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            string tentk = guna2TextBox1.Text;
-            string matkhau = guna2TextBox2.Text;
+            string tentk = guna2TextBox1.Text.Trim();
+            string matkhau = guna2TextBox2.Text.Trim();
 
-            if (tentk.Trim() == "")
+            if (string.IsNullOrEmpty(tentk))
             {
                 MessageBox.Show("Vui lòng nhập tên tài khoản!");
                 return;
             }
-            if (matkhau.Trim() == "")
+
+            if (string.IsNullOrEmpty(matkhau))
             {
                 MessageBox.Show("Vui lòng nhập mật khẩu!");
                 return;
             }
 
+            DAO.Connect(); // Gọi kết nối
+
+            try
             {
-                try
+                string query = @"
+                    SELECT TaiKhoan.MaNhanVien, NhanVien.ChucVu
+                    FROM TaiKhoan
+                    JOIN NhanVien ON TaiKhoan.MaNhanVien = NhanVien.MaNhanVien
+                    WHERE TaiKhoan.TenDangNhap = @tentk AND TaiKhoan.MatKhau = @matkhau";
+
+                using (SqlCommand cmd = new SqlCommand(query, DAO.conn))
                 {
-                    DAO.Connect();
-                    string query = "SELECT COUNT(*) FROM TaiKhoan WHERE TenDangNhap = @tentk AND MatKhau = @matkhau";
-                    SqlCommand cmd = new SqlCommand(query, DAO.conn);
                     cmd.Parameters.AddWithValue("@tentk", tentk);
                     cmd.Parameters.AddWithValue("@matkhau", matkhau);
 
-                    int count = (int)cmd.ExecuteScalar();
-                    if (count > 0)
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        frmMain mainForm = new frmMain();
-                        mainForm.Show();
-                        //this.Hide();
+                        if (reader.Read())
+                        {
+                            Session.MaNhanVien = reader["MaNhanVien"].ToString();
+                            Session.ChucVu = reader["ChucVu"].ToString();
+                            frmMain.Session.ChucVu = reader["ChucVu"].ToString();
+
+                            frmMain mainForm = new frmMain();
+                            mainForm.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!");
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Tên đăng nhập hoặc mật khẩu không chính xác!", "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi kết nối: " + ex.Message);
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+            }
+            finally
+            {
+                DAO.Close(); // Đóng kết nối
+            }
         }
+        
+
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmQuenMatKhau frmQuenMatKhau = new frmQuenMatKhau();
-            frmQuenMatKhau.ShowDialog();
+            frmQuenMatKhau qmkForm = new frmQuenMatKhau();
+            qmkForm.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (guna2TextBox2.PasswordChar == '*')
+            {
+                button1.BringToFront();
+                guna2TextBox2.PasswordChar = '\0';
+
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (guna2TextBox2.PasswordChar == '\0')
+            {
+                button2.BringToFront();
+                guna2TextBox2.PasswordChar = '*';
+
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

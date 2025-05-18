@@ -204,6 +204,10 @@ namespace TTCN
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            //đảm bảo rằng bạn đã kết nối đến cơ sở dữ liệu
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+            // Xóa nhà cung cấp
             string sql = "DELETE FROM NhaCungCap WHERE MaNhaCungCap = '" + txtMaNCC.Text.Trim() + "'";
             if (dgvNCC.Rows.Count == 0)
             {

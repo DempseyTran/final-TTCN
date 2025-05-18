@@ -33,8 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.7\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -65,6 +71,18 @@
     </Compile>
     <Compile Include="frmBaoCaoTonKho.Designer.cs">
       <DependentUpon>frmBaoCaoTonKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChiTietNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChiTietNhanVien.Designer.cs">
+      <DependentUpon>frmChiTietNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDangKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDangKy.Designer.cs">
+      <DependentUpon>frmDangKy.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
@@ -151,6 +169,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBaoCaoTonKho.resx">
       <DependentUpon>frmBaoCaoTonKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChiTietNhanVien.resx">
+      <DependentUpon>frmChiTietNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDangKy.resx">
+      <DependentUpon>frmDangKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
@@ -309,6 +333,8 @@
     <Content Include="anh\8.jpg" />
     <Content Include="anh\9.jpg" />
     <Content Include="anh\9.png" />
+    <None Include="Resources\z6595436477502_8415fdd8fb1571cad1b4be1593ec3ce6.jpg" />
+    <None Include="Resources\z6595436468121_7974b9db73000ed99373db150e9a7ca6.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

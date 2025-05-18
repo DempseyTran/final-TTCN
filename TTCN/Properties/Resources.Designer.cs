@@ -299,5 +299,25 @@ namespace TTCN.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap z6595436468121_7974b9db73000ed99373db150e9a7ca6 {
+            get {
+                object obj = ResourceManager.GetObject("z6595436468121_7974b9db73000ed99373db150e9a7ca6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap z6595436477502_8415fdd8fb1571cad1b4be1593ec3ce6 {
+            get {
+                object obj = ResourceManager.GetObject("z6595436477502_8415fdd8fb1571cad1b4be1593ec3ce6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

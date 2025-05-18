@@ -107,7 +107,7 @@ namespace TTCN
 
                 if (dt.Rows.Count > 0)
                 {
-                    string lastInvoiceCode = dt.Rows[0]["MaHoaDon"].ToString();
+                    string lastInvoiceCode = dt.Rows[0]["MaPhieuNhap"].ToString();
                     int numberPart = int.Parse(lastInvoiceCode.Substring(2)); // Lấy phần số
                     newInvoiceCode = "PN" + (numberPart + 1).ToString("D4"); // Tăng số và định dạng
                 }
@@ -162,6 +162,7 @@ namespace TTCN
 
         private void frmNhapNguyenLieu_Load(object sender, EventArgs e)
         {
+            DAO.Connect();
             FillDataNhanVienToCombo();
             FillDataNCCToCombo();
             dgvChiTietHDNhap.DataSource = null;
@@ -182,7 +183,6 @@ namespace TTCN
                 cbMaNL.Text = row.Cells["MaNguyenLieu"].Value?.ToString(); // Nếu cbMaNL chứa danh sách Mã NL
                 txtTenNL.Text = row.Cells["TenNguyenLieu"].Value?.ToString(); // Gán tên nguyên liệu nếu cần
                 txtDonGia.Text = row.Cells["GiaNhap"].Value?.ToString();
-                txtSoLuong.Text = row.Cells["SoLuong"].Value?.ToString();
 
                 // Tính thành tiền
                 if (decimal.TryParse(row.Cells["GiaNhap"].Value?.ToString(), out decimal donGia) &&
@@ -287,12 +287,154 @@ namespace TTCN
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            string maPN = txtMaPN.Text.Trim();
+            string maNL = cbMaNL.Text.Trim();
+            string soLuong = txtSoLuong.Text.Trim();
 
+            // Kiểm tra dữ liệu đầu vào
+            if (string.IsNullOrEmpty(maPN) || string.IsNullOrEmpty(maNL))
+            {
+                MessageBox.Show("Vui lòng chọn hóa đơn và sản phẩm để sửa!");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(soLuong) || !int.TryParse(soLuong, out int parsedSoLuong))
+            {
+                MessageBox.Show("Số lượng không hợp lệ. Vui lòng nhập số nguyên!");
+                return;
+            }
+
+            // Câu lệnh SQL để cập nhật SoLuong
+            string sqlUpdate = "UPDATE ChiTietPhieuNhap " +
+                               "SET SoLuong = @SoLuong, ThanhTien = @ThanhTien " +
+                               "WHERE MaPhieuNhap = @MaPN AND MaNguyenLieu = @MaNL";
+
+            try
+            {
+                DAO.Connect();
+                SqlCommand command = new SqlCommand(sqlUpdate, DAO.conn);
+                command.Parameters.AddWithValue("@SoLuong", parsedSoLuong);
+                command.Parameters.AddWithValue("@ThanhTien", parsedSoLuong * decimal.Parse(txtDonGia.Text.Trim())); // Tính lại ThanhTien
+                command.Parameters.AddWithValue("@MaPN", maPN);
+                command.Parameters.AddWithValue("@MaNL", maNL);
+
+                int rowsAffected = command.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Cập nhật số lượng thành công!");
+                    LoadDataToChiTietHDNhap(); // Cập nhật lại danh sách chi tiết hóa đơn
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy chi tiết hóa đơn để sửa!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi khi cập nhật số lượng: " + ex.Message);
+            }
+            finally
+            {
+                tinhTongTien();
+                DAO.Close();
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLuuPN_Click(object sender, EventArgs e)
+        {
+            string maPN = txtMaPN.Text.Trim();
+            string tongTienText = txtTongTien.Text.Trim();
+
+            // Kiểm tra dữ liệu đầu vào
+            if (string.IsNullOrEmpty(maPN))
+            {
+                MessageBox.Show("Vui lòng nhập mã hóa đơn để lưu!");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(tongTienText) || !decimal.TryParse(tongTienText, out decimal tongTien))
+            {
+                MessageBox.Show("Tổng tiền không hợp lệ. Vui lòng kiểm tra lại!");
+                return;
+            }
+
+            // Câu lệnh SQL để cập nhật TongTien
+            string sqlUpdate = "UPDATE PhieuNhap SET TongTien = @TongTien, TrangThaiDon = @TrangThaiDon WHERE MaPhieuNhap = @MaPN";
+
+            try
+            {
+                DAO.Connect();
+                SqlCommand command = new SqlCommand(sqlUpdate, DAO.conn);
+                command.Parameters.AddWithValue("@TongTien", tongTien);
+                command.Parameters.AddWithValue("@MaPN", maPN);
+                command.Parameters.AddWithValue("@TrangThaiDon", "Hoan thanh"); // Cập nhật trạng thái đơn
+                int rowsAffected = command.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Cập nhật tổng tiền thành công!");
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy hóa đơn nhập với mã: " + maPN);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi khi cập nhật tổng tiền: " + ex.Message);
+            }
+            finally
+            {
+                DAO.Close();
+            }
+        }
+
+        private void dgvChiTietHDNhap_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtSoLuong.Focus();
+            btnThemNL.Enabled = false;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            if (dgvChiTietHDNhap.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để sửa");
+            }
+            else
+            {
+
+                txtSoLuong.Text = dgvChiTietHDNhap.CurrentRow.Cells[1].Value.ToString();
+            }
+        }
+        private void tinhTongTien()
+        {
+            string MaPN = txtMaPN.Text.Trim();
+            try
+            {
+                DAO.Connect(); // Đảm bảo kết nối mở
+                               // Câu lệnh SQL để tính tổng tiền}
+                string sqlTongTien = "SELECT SUM(ThanhTien) FROM ChiTietPhieuNhap WHERE MaPhieuNhap = N'" + MaPN + "'";
+
+
+                // Tính tổng tiền
+                SqlCommand cmdTongTien = new SqlCommand(sqlTongTien, DAO.conn);
+                object resultTongTien = cmdTongTien.ExecuteScalar();
+                decimal tongTien = resultTongTien != DBNull.Value ? (decimal)resultTongTien : 0;
+                txtTongTien.Text = tongTien.ToString("N0"); // Định dạng số tiền
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi khi tính tổng tiền: " + ex.Message);
+            }
+            finally
+            {
+                DAO.Close(); // Đóng kết nối
+            }
         }
     }
 }

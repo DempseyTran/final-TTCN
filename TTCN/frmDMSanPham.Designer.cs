@@ -118,7 +118,6 @@
             this.dgvSanPham.Size = new System.Drawing.Size(753, 369);
             this.dgvSanPham.TabIndex = 24;
             this.dgvSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dgvSanPham.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // groupBox1
             // 
@@ -272,6 +271,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmDMSanPham";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDanhMucSanPham";
             this.Load += new System.EventHandler(this.frmDanhMucSanPham_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).EndInit();

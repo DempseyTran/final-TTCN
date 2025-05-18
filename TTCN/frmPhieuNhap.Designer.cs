@@ -43,7 +43,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbTraCuuMaNCC = new System.Windows.Forms.ComboBox();
             this.txtTgDuyet = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
@@ -67,7 +67,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbTraCuuMaNV = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -89,7 +89,7 @@
             this.chiTiếtĐơnToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -97,50 +97,52 @@
             // 
             this.thêmToolStripMenuItem1.Image = global::TTCN.Properties.Resources.Hopstarter_Soft_Scraps_Button_Add_48;
             this.thêmToolStripMenuItem1.Name = "thêmToolStripMenuItem1";
-            this.thêmToolStripMenuItem1.Size = new System.Drawing.Size(80, 26);
+            this.thêmToolStripMenuItem1.Size = new System.Drawing.Size(80, 24);
             this.thêmToolStripMenuItem1.Text = "Thêm";
             // 
             // sửaToolStripMenuItem
             // 
             this.sửaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sửaToolStripMenuItem.Image")));
             this.sửaToolStripMenuItem.Name = "sửaToolStripMenuItem";
-            this.sửaToolStripMenuItem.Size = new System.Drawing.Size(72, 26);
+            this.sửaToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
             this.sửaToolStripMenuItem.Text = "Sửa ";
             // 
             // xóaToolStripMenuItem
             // 
             this.xóaToolStripMenuItem.Image = global::TTCN.Properties.Resources.Oxygen_Icons_org_Oxygen_Actions_window_close_48;
             this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
-            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(69, 26);
+            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.xóaToolStripMenuItem.Text = "Xóa";
             // 
             // lưuToolStripMenuItem
             // 
             this.lưuToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("lưuToolStripMenuItem.Image")));
             this.lưuToolStripMenuItem.Name = "lưuToolStripMenuItem";
-            this.lưuToolStripMenuItem.Size = new System.Drawing.Size(67, 26);
+            this.lưuToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
             this.lưuToolStripMenuItem.Text = "Lưu";
             // 
             // làmMớiToolStripMenuItem
             // 
             this.làmMớiToolStripMenuItem.Image = global::TTCN.Properties.Resources.Tatice_Cristal_Intense_Reload_48;
             this.làmMớiToolStripMenuItem.Name = "làmMớiToolStripMenuItem";
-            this.làmMớiToolStripMenuItem.Size = new System.Drawing.Size(101, 26);
+            this.làmMớiToolStripMenuItem.Size = new System.Drawing.Size(101, 24);
             this.làmMớiToolStripMenuItem.Text = "Làm mới";
+            this.làmMớiToolStripMenuItem.Click += new System.EventHandler(this.làmMớiToolStripMenuItem_Click);
             // 
             // thoátToolStripMenuItem
             // 
             this.thoátToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("thoátToolStripMenuItem.Image")));
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(81, 26);
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
             this.thoátToolStripMenuItem.Text = "Thoát";
             // 
             // chiTiếtĐơnToolStripMenuItem
             // 
             this.chiTiếtĐơnToolStripMenuItem.Image = global::TTCN.Properties.Resources.Custom_Icon_Design_Flatastic_11_Search_good_48;
             this.chiTiếtĐơnToolStripMenuItem.Name = "chiTiếtĐơnToolStripMenuItem";
-            this.chiTiếtĐơnToolStripMenuItem.Size = new System.Drawing.Size(120, 26);
+            this.chiTiếtĐơnToolStripMenuItem.Size = new System.Drawing.Size(120, 24);
             this.chiTiếtĐơnToolStripMenuItem.Text = "Chi tiết đơn";
+            this.chiTiếtĐơnToolStripMenuItem.Click += new System.EventHandler(this.chiTiếtĐơnToolStripMenuItem_Click);
             // 
             // txtTrangThaiDon
             // 
@@ -185,14 +187,15 @@
             this.button1.Size = new System.Drawing.Size(56, 53);
             this.button1.TabIndex = 30;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // comboBox1
+            // cbTraCuuMaNCC
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(163, 81);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(328, 24);
-            this.comboBox1.TabIndex = 29;
+            this.cbTraCuuMaNCC.FormattingEnabled = true;
+            this.cbTraCuuMaNCC.Location = new System.Drawing.Point(163, 81);
+            this.cbTraCuuMaNCC.Name = "cbTraCuuMaNCC";
+            this.cbTraCuuMaNCC.Size = new System.Drawing.Size(328, 24);
+            this.cbTraCuuMaNCC.TabIndex = 29;
             // 
             // txtTgDuyet
             // 
@@ -377,6 +380,7 @@
             this.dgvPhieuNhap.RowTemplate.Height = 24;
             this.dgvPhieuNhap.Size = new System.Drawing.Size(466, 278);
             this.dgvPhieuNhap.TabIndex = 0;
+            this.dgvPhieuNhap.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhieuNhap_CellClick);
             // 
             // panel1
             // 
@@ -406,30 +410,31 @@
             this.label13.TabIndex = 36;
             this.label13.Text = "Nhân viên lập";
             // 
-            // comboBox2
+            // cbTraCuuMaNV
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(163, 110);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(328, 24);
-            this.comboBox2.TabIndex = 37;
+            this.cbTraCuuMaNV.FormattingEnabled = true;
+            this.cbTraCuuMaNV.Location = new System.Drawing.Point(163, 110);
+            this.cbTraCuuMaNV.Name = "cbTraCuuMaNV";
+            this.cbTraCuuMaNV.Size = new System.Drawing.Size(328, 24);
+            this.cbTraCuuMaNV.TabIndex = 37;
             // 
             // frmPhieuNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cbTraCuuMaNV);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbTraCuuMaNCC);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "frmPhieuNhap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPhieuNhap";
             this.Load += new System.EventHandler(this.frmPhieuNhap_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -459,7 +464,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbTraCuuMaNCC;
         private System.Windows.Forms.TextBox txtTgDuyet;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label11;
@@ -483,7 +488,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbTraCuuMaNV;
         private System.Windows.Forms.ToolStripMenuItem làmMớiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chiTiếtĐơnToolStripMenuItem;
     }

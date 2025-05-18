@@ -10,7 +10,9 @@ namespace TTCN
 {
     public partial class frmDMSanPham : Form
     {
+        SqlConnection conn = DAO.conn;
         string fileAnh;
+        DataTable dtSanPham = new DataTable();
         public frmDMSanPham()
         {
             InitializeComponent();
@@ -26,16 +28,35 @@ namespace TTCN
 
         private void button9_Click(object sender, EventArgs e)
         {
-            string[] image;
             OpenFileDialog openFile = new OpenFileDialog();
-            openFile.Filter = "JPES Images|*jpg|PNG Images|*.png|All files|*.*";
+            openFile.Filter = "JPG Images|*.jpg|PNG Images|*.png|All files|*.*";
             openFile.FilterIndex = 1;
-            openFile.InitialDirectory = Application.StartupPath;
-            if (openFile.ShowDialog() == DialogResult.OK) {
+            openFile.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                // Hiển thị ảnh đã chọn
                 pAnh.Image = Image.FromFile(openFile.FileName);
-                image = openFile.FileName.ToString().Split('\\');
-                fileAnh = image[image.Length-1];
-                MessageBox.Show(fileAnh);
+
+                // Lấy tên file ảnh (vd: "banh.jpg")
+                fileAnh = Path.GetFileName(openFile.FileName);
+
+                // Xác định thư mục đích: thư mục "anh" trong project
+                string binDebug = Application.StartupPath;
+                string projectRoot = Directory.GetParent(Directory.GetParent(binDebug).FullName).FullName;
+                string imageFolder = Path.Combine(projectRoot, "anh");
+
+                // Tạo thư mục "anh" nếu chưa tồn tại
+                if (!Directory.Exists(imageFolder))
+                {
+                    Directory.CreateDirectory(imageFolder);
+                }
+
+                // Sao chép ảnh vào thư mục "anh"
+                string destinationPath = Path.Combine(imageFolder, fileAnh);
+                File.Copy(openFile.FileName, destinationPath, true); // true: ghi đè nếu đã tồn tại
+
+                MessageBox.Show("Đã chọn và sao chép ảnh vào thư mục dự án: " + fileAnh);
             }
         }
 
@@ -81,7 +102,7 @@ namespace TTCN
             string projectRoot = Directory.GetParent(Directory.GetParent(binDebug).FullName).FullName;
 
             // Thư mục ảnh trong project
-            string imageFolder = Path.Combine(projectRoot, "Anh");
+            string imageFolder = Path.Combine(projectRoot, "anh");
 
             // Ghép tên file từ CSDL
             string fullPath = Path.Combine(imageFolder, fileAnh);
@@ -122,7 +143,7 @@ namespace TTCN
                 MessageBox.Show("Không tìm thấy ảnh: " + fullPath);
             }
 
-            
+
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
 
@@ -168,7 +189,7 @@ namespace TTCN
                 txtMaSanPham.Focus();
                 return;
             }
-            
+
             if (check())
             {
                 string MaSanPham = txtMaSanPham.Text.Trim();
@@ -178,7 +199,7 @@ namespace TTCN
                 string sqlInsert = "INSERT INTO SanPham (maSanPham, tenSanPham, DonGia, Anh, GhiChu) VALUES (" +
                                     "N'" + MaSanPham + "', " +
                                     "N'" + TenSanPham + "', " +
-                                    "N'" + DonGia + "', " +                                 
+                                    "N'" + DonGia + "', " +
                                     "N'" + fileAnh + "', " +
                                     "N'" + GhiChu + "')";
 
@@ -209,9 +230,9 @@ namespace TTCN
             pAnh.Image = null;
             fileAnh = "";
             txtMaSanPham.Focus();
-            btnThem.Enabled=true;
-            btnSua.Enabled=false;
-            btnXoa.Enabled=false;
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
 
         }
 
@@ -222,7 +243,7 @@ namespace TTCN
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-           
+
             if (dgvSanPham.Rows.Count == 0)
             {
                 MessageBox.Show("Không có dữ liệu để xóa");
@@ -310,7 +331,13 @@ namespace TTCN
                 }
             }
         }
+
+        private void pAnh_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+
 
 

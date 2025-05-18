@@ -16,10 +16,16 @@ namespace TTCN
         {
             InitializeComponent();
         }
-
+        private void LoadData()
+        {
+            string sql = "SELECT * FROM ChiTietPhieuXuat";
+            DataTable dt = DAO.LoadDataToTable(sql);
+            dgvPhieuXuatKho.DataSource = dt;
+        }
         private void FrmPhieuXuatKho_Load(object sender, EventArgs e)
         {
-
+            DAO.Connect();
+            LoadData();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

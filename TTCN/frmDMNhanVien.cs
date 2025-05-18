@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,13 +23,19 @@ namespace TTCN
 
         private void frmDMNhanVien_Load(object sender, EventArgs e)
         {
+            FillDataToCbTraCuuChucVu();
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
             LoadDataToGridView();
             dgvNhanVien.AllowUserToAddRows = false;
             dgvNhanVien.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
-
+        private void FillDataToCbTraCuuChucVu()
+        {
+            string sql = "SELECT DISTINCT chucvu FROM NhanVien";
+            DAO.FillDataToCombo(cbChucVuFilter, sql, "chucvu", "chucvu");
+            cbChucVuFilter.SelectedIndex = -1; // Để không chọn mặc định
+        }
         private void LoadDataToGridView()
         {
             dgvNhanVien.DataSource = null;
@@ -79,6 +86,8 @@ namespace TTCN
         }
         private void resetvalues()
         {
+            txtTraCuuTenNV.Text = "";
+            cbChucVuFilter.Text = "";
             txtMaNhanVien.Text = "";
             txtTenNhanVien.Text = "";
             rabtnNam.Checked = false;
@@ -100,9 +109,11 @@ namespace TTCN
         private void btnHuyBo_Click(object sender, EventArgs e)
         {
             resetvalues();
+            LoadDataToGridView();
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
             btnLuu.Enabled = false;
+            BtnThem.Enabled = true;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -180,6 +191,10 @@ namespace TTCN
 
         private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            btnLuu.Enabled = false;
+            BtnThem.Enabled = false;
             if (dgvNhanVien.Rows.Count == 0)
             {
                 MessageBox.Show("Không có dữ liệu để chọn");
@@ -231,6 +246,65 @@ namespace TTCN
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnTraCuu_Click(object sender, EventArgs e)
+        {
+            //lấy thông tin tra cứu từ cbChucVuFilter và txtTraCuuTenNV để tra cứu
+            string chucvu = cbChucVuFilter.Text.Trim();
+            string tennv = txtTraCuuTenNV.Text.Trim();
+            string sql = "SELECT * FROM NhanVien WHERE 1=1";
+            if (!string.IsNullOrEmpty(chucvu))
+            {
+                sql += " AND ChucVu = N'" + chucvu + "'";
+            }
+            if (!string.IsNullOrEmpty(tennv))
+            {
+                sql += " AND TenNhanVien LIKE N'%" + tennv + "%'";
+            }
+            try
+            {
+                DAO.Connect();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dgvNhanVien.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi: " + ex.Message);
+            }
+            finally
+            {
+                DAO.Close();
+            }
+
+        }
+
+        private void dgvNhanVien_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Chọn dòng trong DataGridView và mở form chi tiết nhân viên
+            if (dgvNhanVien.CurrentRow != null && dgvNhanVien.CurrentRow.Index >= 0)
+            {
+                string maNV = dgvNhanVien.CurrentRow.Cells[0].Value.ToString();
+                string tenNV = dgvNhanVien.CurrentRow.Cells[1].Value.ToString();
+                string gioiTinh = dgvNhanVien.CurrentRow.Cells[2].Value.ToString();
+                //xử lý ngày sinh
+                string diaChi = dgvNhanVien.CurrentRow.Cells[4].Value.ToString();
+                string sdt = dgvNhanVien.CurrentRow.Cells[5].Value.ToString();
+                string chucVu = dgvNhanVien.CurrentRow.Cells[6].Value.ToString();
+                string email = dgvNhanVien.CurrentRow.Cells[7].Value.ToString();
+                string imagePath = dgvNhanVien.CurrentRow.Cells[8].Value.ToString(); // Đường dẫn ảnh
+                frmChiTietNhanVien chiTietForm = new frmChiTietNhanVien(maNV, tenNV, gioiTinh, email, diaChi, chucVu, sdt, imagePath);
+                chiTietForm.ShowDialog();
+            }
+        }
+
+        private void tạoTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDangKy frmDK = new frmDangKy();
+            frmDK.ShowDialog();
         }
     }
 }
